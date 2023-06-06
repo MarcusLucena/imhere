@@ -16,10 +16,10 @@ export  function Home() {
     }
 
     function handleParticipateRemove(name: string) {
-        Alert.alert("Remover participante", `Deseja remover o participante ${name}?`, [ { text: "Não", style: "cancel" }, { text: "Sim", onPress: () => Alert.alert("Removido") } ]);
-        const search = participants.indexOf(name);
-        const remove: string[] = participants.splice(search, 1);
-        setParticipants(remove)
+        Alert.alert("Remover participante", `Deseja remover o participante ${name}?`, [
+            { text: "Não", style: "cancel" },
+            { text: "Sim", onPress: () => setParticipants(prevState => prevState.filter(participant => participant !== name)) }
+        ]);
     }
 
     return (
